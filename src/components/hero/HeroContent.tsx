@@ -6,25 +6,45 @@ interface HeroContentProps {
 
 export default function HeroContent({ contentRef }: HeroContentProps) {
   const [isDownloading, setIsDownloading] = useState(false);
+  const [downloadProgress, setDownloadProgress] = useState(0);
+  const [scanningPhase, setScanningPhase] = useState('');
 
   const handleDownloadResume = async () => {
     setIsDownloading(true);
+    setDownloadProgress(0);
     
-    // Add a small delay to show the animation
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Medical scanning phases
+    const phases = [
+      'Initializing Medical Scanner...',
+      'Scanning Resume Data...',
+      'Analyzing Medical Credentials...',
+      'Processing AI/ML Expertise...',
+      'Validating Medical Robotics Skills...',
+      'Generating Medical Report...',
+      'Download Complete!'
+    ];
     
-    // Create a link element and trigger download
+    // Simulate medical scanning process
+    for (let i = 0; i < phases.length; i++) {
+      setScanningPhase(phases[i]);
+      setDownloadProgress((i + 1) * (100 / phases.length));
+      await new Promise(resolve => setTimeout(resolve, 400));
+    }
+    
+    // Trigger actual download
     const link = document.createElement('a');
     link.href = '/Prathap_Resume.pdf';
-    link.download = 'Prathap_SelvaKumar_Resume.pdf';
+    link.download = 'Prathap_SelvaKumar_Medical_AI_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
     
-    // Reset the downloading state
+    // Reset after success animation
     setTimeout(() => {
       setIsDownloading(false);
-    }, 500);
+      setDownloadProgress(0);
+      setScanningPhase('');
+    }, 1500);
   };
 
   return (
@@ -44,92 +64,129 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
         </h1>
         
         <h2 className="text-xl md:text-2xl font-medium text-muted-foreground animate-text-reveal" style={{ animationDelay: "150ms" }}>
-AI Enthusiast | Medical Robotics | Software Engineer
+          AI Enthusiast | Medical Robotics | Software Engineer
         </h2>
         
         <p className="text-lg text-foreground/80 animate-text-reveal" style={{ animationDelay: "300ms" }}>
-        Advancing intelligent medical systems that seamlessly integrate robotics and artificial intelligence to bridge the gap between clinical hardware and intelligent software.
+          Advancing intelligent medical systems that seamlessly integrate robotics and artificial intelligence to bridge the gap between clinical hardware and intelligent software.
         </p>
         
         <div className="pt-6 flex flex-wrap gap-4 justify-center md:justify-start stagger-fade-in">
           <button 
             onClick={handleDownloadResume}
             disabled={isDownloading}
-            className={`btn-primary group relative overflow-hidden tilt-card transition-all duration-300 ${
-              isDownloading ? 'scale-95 cursor-not-allowed' : 'hover:scale-105 active:scale-95'
+            className={`medical-download-btn group relative overflow-hidden tilt-card transition-all duration-300 ${
+              isDownloading ? 'medical-scanning' : 'medical-idle'
             }`}
           >
-            {/* Shimmer effect */}
-            <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/40 to-primary/0 opacity-0 group-hover:opacity-100 transform -translate-x-full group-hover:translate-x-full transition-all duration-1000"></span>
+            {/* Medical Scanner Background */}
+            <div className="absolute inset-0 medical-scanner-bg"></div>
             
-            {/* Download progress bar */}
+            {/* DNA Helix Animation */}
             {isDownloading && (
-              <div className="absolute bottom-0 left-0 h-1 bg-primary-foreground/30 w-full">
-                <div className="h-full bg-primary-foreground animate-[slide-in-right_1s_ease-out]"></div>
+              <div className="absolute left-2 top-1/2 transform -translate-y-1/2">
+                <div className="dna-helix">
+                  <div className="dna-strand strand-1"></div>
+                  <div className="dna-strand strand-2"></div>
+                </div>
               </div>
             )}
             
-            {/* Icon with animations */}
-            <div className={`flex items-center transition-all duration-300 ${isDownloading ? 'animate-pulse' : ''}`}>
-              {isDownloading ? (
-                // Loading spinner
-                <svg 
-                  className="w-4 h-4 mr-2 animate-spin" 
-                  fill="none" 
-                  viewBox="0 0 24 24"
-                >
-                  <circle 
-                    className="opacity-25" 
-                    cx="12" 
-                    cy="12" 
-                    r="10" 
-                    stroke="currentColor" 
-                    strokeWidth="4"
-                  />
-                  <path 
-                    className="opacity-75" 
-                    fill="currentColor" 
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  />
-                </svg>
-              ) : (
-                // Download icon with bounce animation
-                <svg 
-                  className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:animate-bounce" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24" 
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
-                  />
-                </svg>
-              )}
-              
-              {/* Button text with typing effect */}
-              <span className={`transition-all duration-300 ${isDownloading ? 'text-primary-foreground/80' : ''}`}>
-                {isDownloading ? 'Downloading...' : 'Download Resume'}
-              </span>
+            {/* Medical Cross Scanner */}
+            <div className={`medical-cross ${isDownloading ? 'scanning' : ''}`}>
+              <div className="cross-vertical"></div>
+              <div className="cross-horizontal"></div>
+              {isDownloading && <div className="scanner-beam"></div>}
             </div>
             
-            {/* Success checkmark animation */}
-            {!isDownloading && (
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-active:opacity-100 transition-opacity duration-200">
-                <svg 
-                  className="w-5 h-5 text-green-400 animate-ping" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
+            {/* Heartbeat Line */}
+            {isDownloading && (
+              <div className="heartbeat-line">
+                <svg viewBox="0 0 100 20" className="heartbeat-svg">
+                  <path 
+                    d="M0,10 L20,10 L25,5 L30,15 L35,0 L40,20 L45,10 L100,10" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    fill="none"
+                    className="heartbeat-path"
+                  />
+                </svg>
+              </div>
+            )}
+            
+            {/* Medical Progress Bar */}
+            {isDownloading && (
+              <div className="medical-progress-container">
+                <div className="medical-progress-bar">
+                  <div 
+                    className="medical-progress-fill"
+                    style={{ width: `${downloadProgress}%` }}
+                  ></div>
+                  <div className="progress-pulse"></div>
+                </div>
+                <div className="progress-percentage">{Math.round(downloadProgress)}%</div>
+              </div>
+            )}
+            
+            {/* Medical Particles */}
+            {isDownloading && (
+              <div className="medical-particles">
+                <div className="particle particle-1">+</div>
+                <div className="particle particle-2">⚕</div>
+                <div className="particle particle-3">+</div>
+                <div className="particle particle-4">⚕</div>
+              </div>
+            )}
+            
+            {/* Button Content */}
+            <div className={`btn-content ${isDownloading ? 'scanning-mode' : ''}`}>
+              {isDownloading ? (
+                <div className="scanning-content">
+                  <div className="medical-icon-container">
+                    <svg className="medical-scanner-icon" viewBox="0 0 24 24" fill="none">
+                      <path 
+                        d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" 
+                        fill="currentColor"
+                        className="scanner-icon-fill"
+                      />
+                      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1" fill="none" className="scanner-circle"/>
+                    </svg>
+                  </div>
+                  <div className="scanning-text">
+                    <div className="scanning-phase">{scanningPhase}</div>
+                  </div>
+                </div>
+              ) : (
+                <div className="idle-content">
+                  <svg 
+                    className="download-icon" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
+                    />
+                  </svg>
+                  <span>Download Medical Resume</span>
+                </div>
+              )}
+            </div>
+            
+            {/* Success Checkmark */}
+            {downloadProgress === 100 && (
+              <div className="medical-success">
+                <svg className="success-icon" viewBox="0 0 24 24" fill="none">
                   <path 
                     strokeLinecap="round" 
                     strokeLinejoin="round" 
-                    strokeWidth={2} 
+                    strokeWidth={3} 
+                    stroke="currentColor"
                     d="M5 13l4 4L19 7" 
+                    className="success-path"
                   />
                 </svg>
               </div>
