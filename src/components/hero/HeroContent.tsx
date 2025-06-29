@@ -58,7 +58,7 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
           <button 
             onClick={handleDownloadResume}
             disabled={downloadState === 'downloading'}
-            className={`btn-primary group relative overflow-hidden tilt-card medical-pulse medical-scan download-btn ${downloadState}`}
+            className={`bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center whitespace-nowrap rounded-md px-4 py-2.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 group relative overflow-hidden tilt-card medical-pulse medical-scan download-btn ${downloadState}`}
           >
             <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/40 to-primary/0 opacity-0 group-hover:opacity-100 transform -translate-x-full group-hover:translate-x-full transition-all duration-1000"></span>
             
@@ -95,7 +95,7 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
             </svg>
             
             <span className="relative z-10">
-              {downloadState === 'idle' && 'Download Resume'}
+              {downloadState === 'idle' && 'Resume'}
               {downloadState === 'downloading' && 'Downloading...'}
               {downloadState === 'success' && 'Downloaded!'}
             </span>
