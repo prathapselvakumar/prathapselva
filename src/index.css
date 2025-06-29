@@ -222,38 +222,6 @@
     transform: perspective(1000px) rotateX(0) rotateY(0);
     transform-style: preserve-3d;
   }
-
-  /* Download button specific animations */
-  .download-button-pulse {
-    animation: download-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  .download-success {
-    animation: download-success 0.6s ease-out;
-  }
-
-  .download-ripple {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .download-ripple::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-  }
-
-  .download-ripple:active::before {
-    width: 300px;
-    height: 300px;
-  }
 }
 
 .glass-effect {
@@ -362,53 +330,4 @@
 
 .animate-slow-fade-in {
   animation: slow-fade-in 1s ease-out forwards;
-}
-
-/* Download button specific animations */
-@keyframes download-pulse {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(var(--primary), 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(var(--primary), 0);
-  }
-}
-
-@keyframes download-success {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes download-progress {
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-@keyframes button-glow {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(var(--primary), 0.5);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(var(--primary), 0.8), 0 0 30px rgba(var(--primary), 0.6);
-  }
-}
-
-/* Enhanced button hover effects */
-.btn-primary:hover {
-  animation: button-glow 2s ease-in-out infinite;
-}
-
-.download-button-active {
-  animation: download-success 0.6s ease-out;
 }
