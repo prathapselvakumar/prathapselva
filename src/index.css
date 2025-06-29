@@ -120,11 +120,15 @@
   }
   
   .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center whitespace-nowrap rounded-md px-8 py-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 min-w-[120px];
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center whitespace-nowrap rounded-md px-6 py-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30;
+  }
+  
+  .btn-primary.heartbeat {
+    animation: heartbeat 2s ease-in-out infinite;
   }
   
   .btn-secondary {
-    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 inline-flex items-center justify-center whitespace-nowrap rounded-md px-8 py-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow-lg shadow-secondary/10 hover:shadow-xl hover:shadow-secondary/20 min-w-[120px];
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 inline-flex items-center justify-center whitespace-nowrap rounded-md px-6 py-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow-lg shadow-secondary/10 hover:shadow-xl hover:shadow-secondary/20;
   }
   
   .animated-underline {
@@ -222,114 +226,6 @@
     transform: perspective(1000px) rotateX(0) rotateY(0);
     transform-style: preserve-3d;
   }
-
-  /* Minimal Medical Animation Classes */
-  .medical-pulse {
-    position: relative;
-  }
-  
-  .medical-pulse::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 4px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: medical-heartbeat 2s ease-in-out infinite;
-  }
-  
-  .medical-pulse::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 8px;
-    height: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: medical-ripple 2s ease-in-out infinite;
-  }
-  
-  .medical-scan {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .medical-scan::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    animation: medical-scan-line 3s ease-in-out infinite;
-  }
-
-  /* Download Animation Classes */
-  .download-btn {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .download-btn .download-icon {
-    transition: all 0.3s ease;
-  }
-  
-  .download-btn.downloading .download-icon {
-    animation: download-bounce 0.6s ease-in-out;
-  }
-  
-  .download-btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.6s ease;
-  }
-  
-  .download-btn.downloading::after {
-    left: 100%;
-  }
-  
-  .download-progress {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.8);
-    width: 0%;
-    transition: width 1.5s ease;
-  }
-  
-  .download-btn.downloading .download-progress {
-    width: 100%;
-  }
-  
-  .download-success {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0;
-    transition: all 0.3s ease;
-  }
-  
-  .download-btn.success .download-success {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
-  
-  .download-btn.success .download-icon {
-    opacity: 0;
-  }
 }
 
 .glass-effect {
@@ -390,6 +286,38 @@
   }
 }
 
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(var(--primary), 0.7);
+  }
+  
+  14% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(var(--primary), 0);
+  }
+  
+  28% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(var(--primary), 0);
+  }
+  
+  42% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(var(--primary), 0);
+  }
+  
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(var(--primary), 0);
+  }
+  
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(var(--primary), 0);
+  }
+}
+
 /* New animation keyframes */
 @keyframes float-vertical {
   0%, 100% { transform: translateY(0); }
@@ -438,73 +366,4 @@
 
 .animate-slow-fade-in {
   animation: slow-fade-in 1s ease-out forwards;
-}
-
-/* Medical Animation Keyframes */
-@keyframes medical-heartbeat {
-  0%, 100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.2);
-    opacity: 1;
-  }
-}
-
-@keyframes medical-ripple {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.3;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(2);
-    opacity: 0;
-  }
-}
-
-@keyframes medical-scan-line {
-  0% {
-    left: -100%;
-  }
-  50% {
-    left: 100%;
-  }
-  100% {
-    left: 100%;
-  }
-}
-
-/* Download Animation Keyframes */
-@keyframes download-bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  25% {
-    transform: translateY(-3px);
-  }
-  50% {
-    transform: translateY(3px);
-  }
-  75% {
-    transform: translateY(-2px);
-  }
-}
-
-@keyframes download-progress {
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-@keyframes success-check {
-  0% {
-    stroke-dasharray: 0 20;
-  }
-  100% {
-    stroke-dasharray: 20 0;
-  }
 }
