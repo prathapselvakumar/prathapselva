@@ -47,7 +47,7 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
         
         <p className="text-lg text-foreground/80 animate-text-reveal" style={{ animationDelay: "300ms" }}>
          
-"Advancing intelligent medical systems that seamlessly integrate robotics and artificial intelligence to bridge the gap between clinical hardware and intelligent software.
+Advancing intelligent medical systems that seamlessly integrate robotics and artificial intelligence to bridge the gap between clinical hardware and intelligent software.
         </p>
         
         <div className="pt-6 flex flex-wrap gap-4 justify-center md:justify-start stagger-fade-in">
