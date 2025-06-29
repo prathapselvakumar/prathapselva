@@ -1,11 +1,16 @@
-import { RefObject } from 'react';
+import { RefObject, useState } from 'react';
 
 interface HeroContentProps {
   contentRef: RefObject<HTMLDivElement>;
 }
 
 export default function HeroContent({ contentRef }: HeroContentProps) {
+  const [isDownloading, setIsDownloading] = useState(false);
+
   const handleDownloadResume = () => {
+    // Start download animation
+    setIsDownloading(true);
+    
     // Create a link element and trigger download
     const link = document.createElement('a');
     link.href = '/Prathap_Resume.pdf';
@@ -13,6 +18,11 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    
+    // Stop animation after 2 seconds
+    setTimeout(() => {
+      setIsDownloading(false);
+    }, 2000);
   };
 
   return (
@@ -42,11 +52,18 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
         <div className="pt-6 flex flex-wrap gap-4 justify-center md:justify-start stagger-fade-in">
           <button 
             onClick={handleDownloadResume}
-            className="btn-primary group relative overflow-hidden tilt-card"
+            className={`btn-primary group relative overflow-hidden tilt-card ${
+              isDownloading ? 'animate-download-heartbeat' : ''
+            }`}
+            disabled={isDownloading}
           >
             <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/40 to-primary/0 opacity-0 group-hover:opacity-100 transform -translate-x-full group-hover:translate-x-full transition-all duration-1000"></span>
+            
+            {/* Download icon with heartbeat animation */}
             <svg 
-              className="w-4 h-4 mr-2" 
+              className={`w-4 h-4 mr-2 transition-all duration-300 ${
+                isDownloading ? 'animate-download-pulse text-accent' : ''
+              }`}
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24" 
@@ -59,16 +76,25 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
                 d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
               />
             </svg>
-            Download Resume
+            
+            {/* Button text with conditional content */}
+            <span className={`transition-all duration-300 ${isDownloading ? 'text-accent' : ''}`}>
+              {isDownloading ? 'Downloading...' : 'Download Resume'}
+            </span>
+            
+            {/* Heartbeat pulse overlay */}
+            {isDownloading && (
+              <div className="absolute inset-0 bg-accent/20 rounded-md animate-download-heartbeat-overlay"></div>
+            )}
           </button>
+          
           <a 
             href="https://www.linkedin.com/in/prathapselvakumar/"  
             className="btn-secondary group relative overflow-hidden tilt-card"
-             target="_blank" 
-              
+            target="_blank" 
           >
             <span className="absolute inset-0 bg-gradient-to-r from-secondary/0 via-secondary/40 to-secondary/0 opacity-0 group-hover:opacity-100 transform -translate-x-full group-hover:translate-x-full transition-all duration-1000"></span>
-            Linkedin 
+            LinkedIn 
           </a>
         </div>
       </div>

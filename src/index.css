@@ -331,3 +331,63 @@
 .animate-slow-fade-in {
   animation: slow-fade-in 1s ease-out forwards;
 }
+
+/* Download heartbeat animations */
+@keyframes download-heartbeat {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(var(--primary), 0.7);
+  }
+  25% { 
+    transform: scale(1.05);
+    box-shadow: 0 0 0 5px rgba(var(--primary), 0.4);
+  }
+  50% { 
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(var(--primary), 0.2);
+  }
+  75% { 
+    transform: scale(1.05);
+    box-shadow: 0 0 0 15px rgba(var(--primary), 0.1);
+  }
+}
+
+@keyframes download-pulse {
+  0%, 100% { 
+    transform: scale(1);
+  }
+  50% { 
+    transform: scale(1.2);
+  }
+}
+
+@keyframes download-heartbeat-overlay {
+  0%, 100% { 
+    opacity: 0;
+    transform: scale(1);
+  }
+  25% { 
+    opacity: 0.3;
+    transform: scale(1.02);
+  }
+  50% { 
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+  75% { 
+    opacity: 0.3;
+    transform: scale(1.02);
+  }
+}
+
+.animate-download-heartbeat {
+  animation: download-heartbeat 0.8s ease-in-out infinite;
+}
+
+.animate-download-pulse {
+  animation: download-pulse 0.6s ease-in-out infinite;
+}
+
+.animate-download-heartbeat-overlay {
+  animation: download-heartbeat-overlay 0.8s ease-in-out infinite;
+}
