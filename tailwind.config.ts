@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -167,6 +166,32 @@ export default {
 				'horizontal-bounce': {
 					'0%, 100%': { transform: 'translateX(0)' },
 					'50%': { transform: 'translateX(25px)' }
+				},
+				'heartbeat': {
+					'0%': { 
+						transform: 'scale(1)',
+						boxShadow: '0 0 0 0 rgba(var(--primary), 0.7)'
+					},
+					'14%': { 
+						transform: 'scale(1.05)',
+						boxShadow: '0 0 0 10px rgba(var(--primary), 0)'
+					},
+					'28%': { 
+						transform: 'scale(1)',
+						boxShadow: '0 0 0 0 rgba(var(--primary), 0)'
+					},
+					'42%': { 
+						transform: 'scale(1.05)',
+						boxShadow: '0 0 0 10px rgba(var(--primary), 0)'
+					},
+					'70%': { 
+						transform: 'scale(1)',
+						boxShadow: '0 0 0 0 rgba(var(--primary), 0)'
+					},
+					'100%': { 
+						transform: 'scale(1)',
+						boxShadow: '0 0 0 0 rgba(var(--primary), 0)'
+					}
 				}
 			},
 			animation: {
@@ -192,6 +217,7 @@ export default {
 				'parallax-scroll': 'parallax-scroll 15s linear infinite alternate',
 				'rotate-perspective': 'rotate-perspective 8s ease-in-out infinite',
 				'horizontal-bounce': 'horizontal-bounce 6s ease-in-out infinite',
+				'heartbeat': 'heartbeat 2s ease-in-out infinite',
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
