@@ -269,6 +269,67 @@
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
     animation: medical-scan-line 3s ease-in-out infinite;
   }
+
+  /* Download Animation Classes */
+  .download-btn {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .download-btn .download-icon {
+    transition: all 0.3s ease;
+  }
+  
+  .download-btn.downloading .download-icon {
+    animation: download-bounce 0.6s ease-in-out;
+  }
+  
+  .download-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+  }
+  
+  .download-btn.downloading::after {
+    left: 100%;
+  }
+  
+  .download-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.8);
+    width: 0%;
+    transition: width 1.5s ease;
+  }
+  
+  .download-btn.downloading .download-progress {
+    width: 100%;
+  }
+  
+  .download-success {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .download-btn.success .download-success {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  
+  .download-btn.success .download-icon {
+    opacity: 0;
+  }
 }
 
 .glass-effect {
@@ -411,5 +472,39 @@
   }
   100% {
     left: 100%;
+  }
+}
+
+/* Download Animation Keyframes */
+@keyframes download-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+  75% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes download-progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes success-check {
+  0% {
+    stroke-dasharray: 0 20;
+  }
+  100% {
+    stroke-dasharray: 20 0;
   }
 }

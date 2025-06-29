@@ -1,11 +1,16 @@
-import { RefObject } from 'react';
+import { RefObject, useState } from 'react';
 
 interface HeroContentProps {
   contentRef: RefObject<HTMLDivElement>;
 }
 
 export default function HeroContent({ contentRef }: HeroContentProps) {
+  const [downloadState, setDownloadState] = useState<'idle' | 'downloading' | 'success'>('idle');
+
   const handleDownloadResume = () => {
+    // Start download animation
+    setDownloadState('downloading');
+    
     // Create a link element and trigger download
     const link = document.createElement('a');
     link.href = '/Prathap_Resume.pdf';
@@ -13,6 +18,16 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    
+    // Show success state after download starts
+    setTimeout(() => {
+      setDownloadState('success');
+      
+      // Reset to idle state after showing success
+      setTimeout(() => {
+        setDownloadState('idle');
+      }, 2000);
+    }, 1500);
   };
 
   return (
@@ -42,11 +57,14 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
         <div className="pt-6 flex flex-wrap gap-4 justify-center md:justify-start stagger-fade-in">
           <button 
             onClick={handleDownloadResume}
-            className="btn-primary group relative overflow-hidden tilt-card medical-pulse medical-scan"
+            disabled={downloadState === 'downloading'}
+            className={`btn-primary group relative overflow-hidden tilt-card medical-pulse medical-scan download-btn ${downloadState}`}
           >
             <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/40 to-primary/0 opacity-0 group-hover:opacity-100 transform -translate-x-full group-hover:translate-x-full transition-all duration-1000"></span>
+            
+            {/* Download Icon */}
             <svg 
-              className="w-4 h-4 mr-2 relative z-10" 
+              className="w-4 h-4 mr-2 relative z-10 download-icon" 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24" 
@@ -59,8 +77,33 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
                 d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
               />
             </svg>
-            <span className="relative z-10">Download Resume</span>
+            
+            {/* Success Check Icon */}
+            <svg 
+              className="w-4 h-4 mr-2 relative z-10 download-success text-green-400" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M5 13l4 4L19 7" 
+              />
+            </svg>
+            
+            <span className="relative z-10">
+              {downloadState === 'idle' && 'Download Resume'}
+              {downloadState === 'downloading' && 'Downloading...'}
+              {downloadState === 'success' && 'Downloaded!'}
+            </span>
+            
+            {/* Progress Bar */}
+            <div className="download-progress"></div>
           </button>
+          
           <a 
             href="https://www.linkedin.com/in/prathapselvakumar/"  
             className="btn-secondary group relative overflow-hidden tilt-card"
