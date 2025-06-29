@@ -28,10 +28,10 @@ export default function AboutSection() {
             <CardContent className="p-6">
               <h3 className="text-xl font-bold mb-4">Personal Bio</h3>
               <p className="mb-4 text-foreground/80">
-                I am Prathap SelvaKumar, Software Engineer I am passionate about the intersection of robotics and artificial intelligence.
+               I am Prathap Selvakumar, a Software Engineer with a deep passion for the intersection of robotics and artificial intelligence in the medical domain. 
               </p>
               <p className="text-foreground/80">
-                With a solid background in computer science and practical industry experience, I aspire to work on cutting-edge technologies that shape the future.
+               With a strong foundation in computer science and hands-on industry experience, I aspire to contribute to the development of intelligent robotic systems that transform patient care, surgical precision, and healthcare delivery.
               </p>
             </CardContent>
           </Card>
@@ -59,7 +59,7 @@ export default function AboutSection() {
             <CardContent className="p-6">
               <h3 className="text-xl font-bold mb-4">Career Goals</h3>
               <p className="text-foreground/80">
-                I am actively seeking opportunities for higher education abroad to deepen my knowledge in the fields of Artificial Intelligence and Robotics. My ultimate goal is to contribute to groundbreaking research and development in these fields, creating intelligent systems that can solve real-world problems and improve people's lives.
+             I am actively pursuing opportunities for higher education abroad to deepen my expertise in the fields of Artificial Intelligence and Robotics, with a particular focus on medical applications. My ultimate goal is to contribute to groundbreaking research and development that leads to intelligent robotic systems capable of solving real-world healthcare challenges, enhancing patient outcomes, and improving the overall quality of life.
               </p>
             </CardContent>
           </Card>

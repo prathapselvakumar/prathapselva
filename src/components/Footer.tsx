@@ -13,7 +13,7 @@ export default function Footer() {
               <span className="ml-1 text-foreground">Selvakumar</span>
             </a>
             <p className="text-sm text-muted-foreground mt-1">
-              AI Enthusiast | Software Engineer
+              AI Enthusiast | Medical Robotics | Software Engineer
             </p>
           </div>
           

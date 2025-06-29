@@ -13,8 +13,8 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
     
     // Create a link element and trigger download
     const link = document.createElement('a');
-    link.href = '/Prathap_Resume.pdf';
-    link.download = 'Prathap_SelvaKumar_Resume.pdf';
+    link.href = '/Prathap Sevakumar-CV.pdf';
+    link.download = 'Prathap Selvakumar-CV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -38,15 +38,16 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
         </div>
         
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold animate-text-reveal">
-          I'm <span className="highlight-text">Prathap Selva Kumar</span>
+          I'm <span className="highlight-text">Prathap SelvaKumar</span>
         </h1>
         
         <h2 className="text-xl md:text-2xl font-medium text-muted-foreground animate-text-reveal" style={{ animationDelay: "150ms" }}>
-          AI Enthusiast | Software Engineer
+          AI Enthusiast | Medical Robotics | Software Engineer
         </h2>
         
         <p className="text-lg text-foreground/80 animate-text-reveal" style={{ animationDelay: "300ms" }}>
-          Pioneering intelligent systems that bridge the gap between hardware and software.
+         
+"Advancing intelligent medical systems that seamlessly integrate robotics and artificial intelligence to bridge the gap between clinical hardware and intelligent software.
         </p>
         
         <div className="pt-6 flex flex-wrap gap-4 justify-center md:justify-start stagger-fade-in">
@@ -119,7 +120,7 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
             <span className={`transition-all duration-300 relative z-10 font-medium ${
               isDownloading ? 'text-white drop-shadow-lg' : ''
             }`}>
-              {isDownloading ? 'Healing Download...' : 'Download Resume'}
+              {isDownloading ? 'Downloading...' : 'Download Resume'}
             </span>
           </button>
           
