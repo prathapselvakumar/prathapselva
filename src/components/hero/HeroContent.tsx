@@ -19,10 +19,10 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
     link.click();
     document.body.removeChild(link);
     
-    // Stop animation after 2 seconds
+    // Stop animation after 3 seconds to show the healing effect longer
     setTimeout(() => {
       setIsDownloading(false);
-    }, 2000);
+    }, 3000);
   };
 
   return (
@@ -57,12 +57,50 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
             }`}
             disabled={isDownloading}
           >
+            {/* Healing glow background when downloading */}
+            {isDownloading && (
+              <div className="absolute inset-0 animate-healing-glow rounded-md"></div>
+            )}
+            
+            {/* Energy flow background when downloading */}
+            {isDownloading && (
+              <div className="absolute inset-0 animate-healing-energy-flow rounded-md opacity-60"></div>
+            )}
+            
+            {/* Healing particles */}
+            {isDownloading && (
+              <>
+                <div className="absolute top-2 left-4 w-2 h-2 bg-green-400 rounded-full animate-healing-particles" style={{ animationDelay: "0s" }}></div>
+                <div className="absolute top-3 right-6 w-1.5 h-1.5 bg-blue-400 rounded-full animate-healing-particles" style={{ animationDelay: "0.3s" }}></div>
+                <div className="absolute bottom-3 left-6 w-1 h-1 bg-purple-400 rounded-full animate-healing-particles" style={{ animationDelay: "0.6s" }}></div>
+                <div className="absolute bottom-2 right-4 w-1.5 h-1.5 bg-emerald-400 rounded-full animate-healing-particles" style={{ animationDelay: "0.9s" }}></div>
+                <div className="absolute top-1/2 left-3 w-1 h-1 bg-cyan-400 rounded-full animate-healing-particles" style={{ animationDelay: "1.2s" }}></div>
+                <div className="absolute top-1/2 right-3 w-1.5 h-1.5 bg-green-300 rounded-full animate-healing-particles" style={{ animationDelay: "1.5s" }}></div>
+              </>
+            )}
+            
+            {/* Healing wave effect */}
+            {isDownloading && (
+              <>
+                <div className="absolute inset-0 border-2 border-green-400/30 rounded-md animate-healing-wave"></div>
+                <div className="absolute inset-0 border-2 border-blue-400/20 rounded-md animate-healing-wave" style={{ animationDelay: "0.5s" }}></div>
+                <div className="absolute inset-0 border-2 border-purple-400/20 rounded-md animate-healing-wave" style={{ animationDelay: "1s" }}></div>
+              </>
+            )}
+            
+            {/* Shimmer effect */}
+            {isDownloading && (
+              <div className="absolute inset-0 overflow-hidden rounded-md">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent w-1/3 h-full animate-healing-shimmer"></div>
+              </div>
+            )}
+            
             <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/40 to-primary/0 opacity-0 group-hover:opacity-100 transform -translate-x-full group-hover:translate-x-full transition-all duration-1000"></span>
             
-            {/* Download icon with heartbeat animation */}
+            {/* Download icon with enhanced animation */}
             <svg 
-              className={`w-4 h-4 mr-2 transition-all duration-300 ${
-                isDownloading ? 'animate-download-pulse text-accent' : ''
+              className={`w-4 h-4 mr-2 transition-all duration-300 relative z-10 ${
+                isDownloading ? 'animate-download-pulse text-white' : ''
               }`}
               fill="none" 
               stroke="currentColor" 
@@ -77,15 +115,12 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
               />
             </svg>
             
-            {/* Button text with conditional content */}
-            <span className={`transition-all duration-300 ${isDownloading ? 'text-accent' : ''}`}>
-              {isDownloading ? 'Downloading...' : 'Download Resume'}
+            {/* Button text with enhanced styling */}
+            <span className={`transition-all duration-300 relative z-10 font-medium ${
+              isDownloading ? 'text-white drop-shadow-lg' : ''
+            }`}>
+              {isDownloading ? 'Healing Download...' : 'Download Resume'}
             </span>
-            
-            {/* Heartbeat pulse overlay */}
-            {isDownloading && (
-              <div className="absolute inset-0 bg-accent/20 rounded-md animate-download-heartbeat-overlay"></div>
-            )}
           </button>
           
           <a 
