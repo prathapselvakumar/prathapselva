@@ -22,11 +22,11 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
         </h1>
         
         <h2 className="text-xl md:text-2xl font-medium text-muted-foreground animate-text-reveal" style={{ animationDelay: "150ms" }}>
-          AI Enthusiast | Software Engineer
+AI Enthusiast | Medical Robotics | Software Engineer
         </h2>
         
         <p className="text-lg text-foreground/80 animate-text-reveal" style={{ animationDelay: "300ms" }}>
-          Pioneering intelligent systems that bridge the gap between hardware and software.
+        Advancing intelligent medical systems that seamlessly integrate robotics and artificial intelligence to bridge the gap between clinical hardware and intelligent software.
         </p>
         
         <div className="pt-6 flex flex-wrap gap-4 justify-center md:justify-start stagger-fade-in">
