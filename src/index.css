@@ -123,41 +123,6 @@
     @apply bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center whitespace-nowrap rounded-md px-6 py-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30;
   }
   
-  /* Scientific/Medical themed download button */
-  .btn-primary.scientific {
-    @apply relative overflow-hidden;
-    animation: dna-pulse 3s ease-in-out infinite;
-  }
-  
-  .btn-primary.scientific::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    animation: dna-scan 2s linear infinite;
-  }
-  
-  .btn-primary.scientific::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 4px;
-    height: 4px;
-    background: rgba(255,255,255,0.8);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: molecular-orbit 1.5s linear infinite;
-    box-shadow: 
-      8px 0 0 rgba(255,255,255,0.6),
-      -8px 0 0 rgba(255,255,255,0.6),
-      0 8px 0 rgba(255,255,255,0.4),
-      0 -8px 0 rgba(255,255,255,0.4);
-  }
-  
   .btn-secondary {
     @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 inline-flex items-center justify-center whitespace-nowrap rounded-md px-6 py-3 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow-lg shadow-secondary/10 hover:shadow-xl hover:shadow-secondary/20;
   }
@@ -314,36 +279,6 @@
   
   100% {
     background-position: 60px 60px;
-  }
-}
-
-/* Scientific/Medical themed animations */
-@keyframes dna-pulse {
-  0%, 100% { 
-    box-shadow: 0 0 20px rgba(var(--primary), 0.3);
-    transform: scale(1);
-  }
-  50% { 
-    box-shadow: 0 0 30px rgba(var(--primary), 0.6), 0 0 40px rgba(var(--accent), 0.3);
-    transform: scale(1.02);
-  }
-}
-
-@keyframes dna-scan {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 100%;
-  }
-}
-
-@keyframes molecular-orbit {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 

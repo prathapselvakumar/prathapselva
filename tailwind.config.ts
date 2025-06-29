@@ -166,25 +166,6 @@ export default {
 				'horizontal-bounce': {
 					'0%, 100%': { transform: 'translateX(0)' },
 					'50%': { transform: 'translateX(25px)' }
-				},
-				// Scientific/Medical themed animations
-				'dna-pulse': {
-					'0%, 100%': { 
-						boxShadow: '0 0 20px rgba(var(--primary), 0.3)',
-						transform: 'scale(1)'
-					},
-					'50%': { 
-						boxShadow: '0 0 30px rgba(var(--primary), 0.6), 0 0 40px rgba(var(--accent), 0.3)',
-						transform: 'scale(1.02)'
-					}
-				},
-				'dna-scan': {
-					'0%': { left: '-100%' },
-					'100%': { left: '100%' }
-				},
-				'molecular-orbit': {
-					'0%': { transform: 'translate(-50%, -50%) rotate(0deg)' },
-					'100%': { transform: 'translate(-50%, -50%) rotate(360deg)' }
 				}
 			},
 			animation: {
@@ -210,10 +191,6 @@ export default {
 				'parallax-scroll': 'parallax-scroll 15s linear infinite alternate',
 				'rotate-perspective': 'rotate-perspective 8s ease-in-out infinite',
 				'horizontal-bounce': 'horizontal-bounce 6s ease-in-out infinite',
-				// Scientific/Medical animations
-				'dna-pulse': 'dna-pulse 3s ease-in-out infinite',
-				'dna-scan': 'dna-scan 2s linear infinite',
-				'molecular-orbit': 'molecular-orbit 1.5s linear infinite',
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

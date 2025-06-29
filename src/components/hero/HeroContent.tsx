@@ -42,7 +42,7 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
         <div className="pt-6 flex flex-wrap gap-4 justify-center md:justify-start stagger-fade-in">
           <button 
             onClick={handleDownloadResume}
-            className="btn-primary scientific group relative overflow-hidden tilt-card"
+            className="btn-primary group relative overflow-hidden tilt-card"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/40 to-primary/0 opacity-0 group-hover:opacity-100 transform -translate-x-full group-hover:translate-x-full transition-all duration-1000"></span>
             <svg 
