@@ -8,22 +8,20 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
   const [isDownloading, setIsDownloading] = useState(false);
 
   const handleDownloadResume = () => {
-    // Start download animation
-    setIsDownloading(true);
-    
-    // Create a link element and trigger download
-    const link = document.createElement('a');
-    link.href = 'public/Prathap Selvakumar-CV.pdf';
-    link.download = 'Prathap Selvakumar-CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    // Stop animation after 3 seconds to show the healing effect longer
-    setTimeout(() => {
-      setIsDownloading(false);
-    }, 3000);
-  };
+  setIsDownloading(true);
+
+  const link = document.createElement('a');
+  link.href = '/Prathap%20Selvakumar-CV.pdf'; // ✅ URL-encoded path
+  link.download = 'Prathap_Selvakumar_CV.pdf'; // ✅ Save-as filename
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+  setTimeout(() => {
+    setIsDownloading(false);
+  }, 3000);
+};
+
 
   return (
     <div ref={contentRef} className="w-full md:w-3/5 text-center md:text-left order-1 md:order-2 transition-transform duration-300">
