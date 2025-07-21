@@ -62,12 +62,16 @@ export function ThemeToggle() {
   const getIcon = () => {
     if (theme === "system") {
       // Show system icon or current system preference
-      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      return systemPrefersDark ? (
-        <Moon className="h-[1.2rem] w-[1.2rem]" />
-      ) : (
-        <Sun className="h-[1.2rem] w-[1.2rem]" />
-      );
+      if (typeof window !== 'undefined') {
+        const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        return systemPrefersDark ? (
+          <Moon className="h-[1.2rem] w-[1.2rem]" />
+        ) : (
+          <Sun className="h-[1.2rem] w-[1.2rem]" />
+        );
+      }
+      // Fallback for SSR or when window is not available
+      return <Sun className="h-[1.2rem] w-[1.2rem]" />;
     } else if (theme === "light") {
       return <Moon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />;
     } else {
