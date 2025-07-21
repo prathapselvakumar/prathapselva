@@ -58,11 +58,11 @@ export function ThemeToggle() {
   }, [theme, mounted]);
 
   const toggleTheme = () => {
-    // Cycle through: light -> dark -> system -> light
-    if (theme === "light") {
+    // Cycle through: system -> light -> dark -> light
+    if (theme === "system") {
+      setTheme("light");
+    } else if (theme === "light") {
       setTheme("dark");
-    } else if (theme === "dark") {
-      setTheme("system");
     } else {
       setTheme("light");
     }
