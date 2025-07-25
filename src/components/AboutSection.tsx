@@ -28,10 +28,10 @@ export default function AboutSection() {
             <CardContent className="p-6">
               <h3 className="text-xl font-bold mb-4">Personal Bio</h3>
               <p className="mb-4 text-foreground/80">
-               I am Prathap Selvakumar, a Software Engineer with a deep passion for the intersection of robotics and artificial intelligence in the medical domain. 
+               I am Prathap Selvakumar, a Software Engineer with a deep passion for the intersection of robotics and artificial intelligence. 
               </p>
               <p className="text-foreground/80">
-               With a strong foundation in computer science and hands-on industry experience, I aspire to contribute to the development of intelligent robotic systems that transform patient care, surgical precision, and healthcare delivery.
+              With a strong foundation in computer science and hands-on industry experience, I aspire to contribute to the development of intelligent robotic systems that enhance automation, improve precision, and drive innovation across various industries
               </p>
             </CardContent>
           </Card>
@@ -59,7 +59,7 @@ export default function AboutSection() {
             <CardContent className="p-6">
               <h3 className="text-xl font-bold mb-4">Career Goals</h3>
               <p className="text-foreground/80">
-             I am actively pursuing opportunities for higher education abroad to deepen my expertise in the fields of Artificial Intelligence and Robotics, with a particular focus on medical applications. My ultimate goal is to contribute to groundbreaking research and development that leads to intelligent robotic systems capable of solving real-world healthcare challenges, enhancing patient outcomes, and improving the overall quality of life.
+             I am actively pursuing opportunities for higher education abroad to deepen my expertise in the fields of Artificial Intelligence and Robotics. My ultimate goal is to contribute to groundbreaking research and development that leads to intelligent robotic systems capable of solving real-world challenges, driving innovation, and improving the quality of life across diverse domains.
               </p>
             </CardContent>
           </Card>

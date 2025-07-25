@@ -40,7 +40,7 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
         </h1>
         
         <h2 className="text-xl md:text-2xl font-medium text-muted-foreground animate-text-reveal" style={{ animationDelay: "150ms" }}>
-          AI Enthusiast | Medical Robotics | Software Engineer
+          AI Enthusiast |  Robotics | Software Engineer
         </h2>
         
         <p className="text-lg text-foreground/80 animate-text-reveal" style={{ animationDelay: "300ms" }}>
