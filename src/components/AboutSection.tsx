@@ -1,4 +1,3 @@
-
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -43,10 +42,25 @@ export default function AboutSection() {
           )}>
             <CardContent className="p-6">
               <h3 className="text-xl font-bold mb-4">Education</h3>
-              <div className="space-y-2">
-                <h4 className="font-semibold">B.Tech in Computer Science and Engineering</h4>
-                <p className="text-foreground/80">SRM Institute of Science and Technology</p>
-                <p className="text-sm text-muted-foreground">CGPA: 8.49</p>
+              <div className="space-y-6">
+                <div className="space-y-2">
+                  <h4 className="font-semibold">M.Sc in Robotics</h4>
+                  <p className="text-foreground/80">University of Manchester, United Kingdom</p>
+                  <p className="text-sm text-muted-foreground">Year of Graduation: Ongoing</p>
+                  <div className="flex items-center gap-2 mt-2">
+                    <div className="w-full bg-secondary rounded-full h-2">
+                      <div className="bg-gradient-to-r from-accent to-primary h-2 rounded-full w-1/3 animate-pulse"></div>
+                    </div>
+                    <span className="text-xs text-muted-foreground">In Progress</span>
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <h4 className="font-semibold">B.Tech in Computer Science and Engineering</h4>
+                  <p className="text-foreground/80">SRM Institute of Science and Technology, India</p>
+                  <p className="text-sm text-muted-foreground">Year of Graduation: 2024</p>
+                  <p className="text-sm text-muted-foreground">CGPA: 8.49</p>
+                </div>
               </div>
             </CardContent>
           </Card>
