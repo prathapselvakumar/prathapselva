@@ -49,7 +49,7 @@ export default function AboutSection() {
                       <h4 className="font-semibold">M.Sc in Robotics</h4>
                       <p className="text-foreground/80">University of Manchester, United Kingdom</p>
                     </div>
-                    <p className="text-sm text-muted-foreground">2024-2025</p>
+                    <p className="text-sm text-muted-foreground">2025-Current</p>
                   </div>
                 </div>
                 
