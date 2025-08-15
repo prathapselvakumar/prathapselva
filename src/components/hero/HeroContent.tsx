@@ -50,7 +50,7 @@ Advancing intelligent medical systems that seamlessly integrate robotics and art
         
         <div className="pt-6 flex flex-wrap gap-4 justify-center md:justify-start stagger-fade-in">
           <button 
-            onClick={handleDownloadResume}
+            onClick={handleDownloadResume} 
             className={`btn-primary group relative overflow-hidden tilt-card ${
               isDownloading ? 'animate-download-heartbeat' : ''
             }`}

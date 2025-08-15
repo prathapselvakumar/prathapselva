@@ -40,7 +40,7 @@ const experiences: ExperienceItem[] = [
     id: "NUS Academic -Intern",
     title: "Big Data Analytics using Deep Learning - Academic Internship ",
     company: "National University of Singapore",
-    period: "DEC-2023 to JAN-2025",
+    period: "DEC-2023 to JAN-2024",
     description: [
       "Applied deep learning techniques to analyze large datasets",
       "Worked on research projects involving pattern recognition in data",
@@ -51,7 +51,7 @@ const experiences: ExperienceItem[] = [
   {
     id: "csq-intern",
     title: "Python Developer Intern",
-    company: "C-Square Info Solutions",
+    company: "C-Square Info Solutions (Subsidiary  of Reliance Retail)",
     period: "SEP-2023 TO NOV-2023",
     description: [
       "Developed Python scripts for automation and data processing",
