@@ -11,7 +11,7 @@ export default function HeroContent({ contentRef }: HeroContentProps) {
   setIsDownloading(true);
 
   const link = document.createElement('a');
-  link.href = '/Prathap%20Selvakumar-CV.pdf'; // ✅ URL-encoded path
+    link.href = '/PrathapSelvakumar-CV.pdf'; // ✅ URL-encoded path
   link.download = 'Prathap_Selvakumar_CV.pdf'; // ✅ Save-as filename
   document.body.appendChild(link);
   link.click();
